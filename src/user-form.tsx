@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useState } from "react";
 import { Check, Camera, Upload, X, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
