@@ -52,7 +52,7 @@ export default function Layout() {
   // Menu items configuration
   const menuItems = [
     { path: "/", icon: <Home size={20} />, label: "Dashboard" },
-    { path: "/user", icon: <Users size={20} />, label: "Users" },
+    { path: "/user", icon: <Users size={20} />, label: "Form" },
     // { path: "/reports", icon: <FileText size={20} />, label: "Reports" },
     // { path: "/settings", icon: <Settings size={20} />, label: "Settings" },
     // { path: "/help", icon: <HelpCircle size={20} />, label: "Help" },
