@@ -6,15 +6,18 @@ import {
   Home,
   // Settings,
   Users,
+  BellDotIcon,
+  LogOut,
   // FileText,
   // HelpCircle,
 } from "lucide-react";
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle responsive behavior
   useEffect(() => {
@@ -49,11 +52,23 @@ export default function Layout() {
     }
   };
 
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log("Logging out...");
+    // For example: clear auth token, user data, etc.
+    // Then redirect to login page
+    navigate("/login");
+  };
+
   // Menu items configuration
   const menuItems = [
     { path: "/", icon: <Home size={20} />, label: "Dashboard" },
     { path: "/user", icon: <Users size={20} />, label: "Form" },
-    // { path: "/reports", icon: <FileText size={20} />, label: "Reports" },
+    {
+      path: "/notification",
+      icon: <BellDotIcon size={20} />,
+      label: "Notification",
+    },
     // { path: "/settings", icon: <Settings size={20} />, label: "Settings" },
     // { path: "/help", icon: <HelpCircle size={20} />, label: "Help" },
   ];
@@ -76,6 +91,14 @@ export default function Layout() {
           </div>
 
           <div className="flex items-center space-x-4">
+            <button
+              onClick={handleLogout}
+              className="flex items-center p-2 text-red-500 hover:bg-gray-200 rounded-md transition-colors"
+              title="Logout"
+            >
+              <LogOut size={20} className="mr-2" />
+              <span className="hidden sm:inline">Logout</span>
+            </button>
             <div className="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center">
               <span className="font-medium text-gray-700">U</span>
             </div>
