@@ -49,22 +49,18 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Active Projects Card */}
-        <div className="bg-white p-4 rounded-lg shadow border-l-4 border-purple-500">
-          <div className="flex justify-between items-start">
-            <div>
-              <p className="text-sm text-gray-500">Active Projects</p>
-              <h3 className="text-2xl font-bold text-gray-800">
-                {stats.activeProjects}
-              </h3>
+        <div className="bg-white p-4 rounded-lg shadow">
+          <div className="flex items-center">
+            <div className="p-2 bg-blue-100 rounded-lg mr-3">
+              <Users className="text-blue-600" size={20} />
             </div>
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <Briefcase className="text-purple-600" size={20} />
+            <div>
+              <p className="text-sm text-gray-500">Active Users</p>
+              <h3 className="text-xl font-bold text-gray-800">843</h3>
             </div>
           </div>
-          <div className="flex items-center mt-2 text-sm text-gray-500">
-            <FileText size={16} className="mr-1" />
-            <span>12 in development</span>
+          <div className="mt-2 text-sm text-gray-500">
+            <span className="text-green-600">↑ 5.2%</span> from last week
           </div>
         </div>
 
@@ -84,6 +80,25 @@ const AdminDashboard = () => {
           <div className="flex items-center mt-2 text-sm text-blue-600">
             <Clock size={16} className="mr-1" />
             <span>Avg. response: {stats.avgResponseTime}</span>
+          </div>
+        </div>
+
+        {/* Active Projects Card */}
+        <div className="bg-white p-4 rounded-lg shadow border-l-4 border-purple-500">
+          <div className="flex justify-between items-start">
+            <div>
+              <p className="text-sm text-gray-500">Total Documents</p>
+              <h3 className="text-2xl font-bold text-gray-800">
+                {stats.activeProjects}
+              </h3>
+            </div>
+            <div className="p-2 bg-purple-100 rounded-lg">
+              <Briefcase className="text-purple-600" size={20} />
+            </div>
+          </div>
+          <div className="flex items-center mt-2 text-sm text-gray-500">
+            <FileText size={16} className="mr-1" />
+            <span>12 in development</span>
           </div>
         </div>
 
@@ -110,7 +125,7 @@ const AdminDashboard = () => {
       {/* Secondary Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* Tasks Completed Card */}
-        <div className="bg-white p-4 rounded-lg shadow">
+        {/* <div className="bg-white p-4 rounded-lg shadow">
           <div className="flex items-center">
             <div className="p-2 bg-green-100 rounded-lg mr-3">
               <CheckCircle className="text-green-600" size={20} />
@@ -128,23 +143,9 @@ const AdminDashboard = () => {
               style={{ width: `${stats.tasksCompleted}%` }}
             ></div>
           </div>
-        </div>
+        </div> */}
 
         {/* User Activity Card */}
-        <div className="bg-white p-4 rounded-lg shadow">
-          <div className="flex items-center">
-            <div className="p-2 bg-blue-100 rounded-lg mr-3">
-              <Users className="text-blue-600" size={20} />
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Active Users</p>
-              <h3 className="text-xl font-bold text-gray-800">843</h3>
-            </div>
-          </div>
-          <div className="mt-2 text-sm text-gray-500">
-            <span className="text-green-600">↑ 5.2%</span> from last week
-          </div>
-        </div>
 
         {/* System Health Card */}
         {/* <div className="bg-white p-4 rounded-lg shadow">
