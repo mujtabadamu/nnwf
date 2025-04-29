@@ -6,7 +6,7 @@ import {
   TrendingUp,
   Clock,
   AlertCircle,
-  CheckCircle,
+  // CheckCircle,
 } from "lucide-react";
 
 const AdminDashboard = () => {
