@@ -1,12 +1,4 @@
-import {
-  Download,
-  Calendar,
-  Clock,
-  FileText,
-  Bell,
-  CheckCircle,
-  AlertCircle,
-} from "lucide-react";
+import { Download, Calendar, Clock, FileText, Bell } from "lucide-react";
 
 const NotificationsPage = () => {
   // Mock notification data
