@@ -23,7 +23,7 @@ interface FormData {
   middleName?: string;
   gender: string;
   dateOfBirth: string;
-  age: string;
+
   maritalStatus: string;
   email: string;
   nationality: string;
@@ -31,7 +31,7 @@ interface FormData {
   lga: string;
   ward?: string;
   residentialAddress: string;
-  occupation: string;
+  rank: string;
   educationLevel: string;
   nin: string;
   bvn?: string;
@@ -68,17 +68,7 @@ export default function UserForm() {
     middleName: yup.string().optional().max(50),
     gender: yup.string().required("Gender is required"),
     dateOfBirth: yup.string().required("Date of birth is required"),
-    age: yup
-      .string()
-      .required("Age is required")
-      .test(
-        "is-valid-age",
-        "Age must be a number between 18 and 120",
-        (value) => {
-          const numValue = parseInt(value, 10);
-          return !isNaN(numValue) && numValue >= 18 && numValue <= 120;
-        }
-      ),
+
     maritalStatus: yup.string().required("Marital status is required"),
     email: yup
       .string()
@@ -91,7 +81,7 @@ export default function UserForm() {
     residentialAddress: yup
       .string()
       .required("Residential address is required"),
-    occupation: yup.string().required("Occupation is required"),
+    rank: yup.string().required("Rank/Postion is required"),
     educationLevel: yup.string().required("Education level is required"),
     nin: yup
       .string()
@@ -136,7 +126,7 @@ export default function UserForm() {
       middleName: "",
       gender: "",
       dateOfBirth: "",
-      age: "",
+
       maritalStatus: "",
       email: "",
       nationality: "",
@@ -144,7 +134,7 @@ export default function UserForm() {
       lga: "",
       ward: "",
       residentialAddress: "",
-      occupation: "",
+      rank: "",
       educationLevel: "",
       nin: "",
       bvn: "",
@@ -157,26 +147,6 @@ export default function UserForm() {
       interests: "",
     },
   });
-
-  // Calculate age when date of birth changes
-  const dob = watch("dateOfBirth");
-  if (dob) {
-    const dobDate = new Date(dob);
-    const today = new Date();
-    let age = today.getFullYear() - dobDate.getFullYear();
-    const monthDiff = today.getMonth() - dobDate.getMonth();
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < dobDate.getDate())
-    ) {
-      age--;
-    }
-    // Update age field if it's different
-    if (age.toString() !== watch("age")) {
-      // You might need to handle this differently as directly setting form values
-      // isn't straightforward with react-hook-form without triggering validation
-    }
-  }
 
   // Handle picture upload and preview
   const handlePictureChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -411,12 +381,7 @@ export default function UserForm() {
               options={["Male", "Female", "Other", "Prefer not to say"]}
             />
             <FormField label="Date of Birth" name="dateOfBirth" type="date" />
-            <FormField
-              label="Age"
-              name="age"
-              type="number"
-              placeholder="Enter your age"
-            />
+
             <FormField
               label="Marital Status"
               name="maritalStatus"
@@ -471,9 +436,9 @@ export default function UserForm() {
               placeholder="Enter your full residential address"
             />
             <FormField
-              label="Occupation"
-              name="occupation"
-              placeholder="Enter your occupation"
+              label="Rank/Position"
+              name="rank"
+              placeholder="Enter your rank or position"
             />
             <FormField
               label="Education Level"
